@@ -122,7 +122,6 @@ export default class Form {
       this.declineBtn.addEventListener('click', decline)
 
       this.removeListeners = () => {
-        console.log("Remove Listeners");
         removeEventListener('click', apply)
         removeEventListener('click', decline)
       }
