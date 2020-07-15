@@ -1,6 +1,6 @@
 export default class Data {
   constructor() {
-    this.key = 'a6483e3a0a61a95c3954df3d546c8b31ddafdfd6330ea0b43079563a88f1a32a'
+    this.key = 'bfa3821152c6b9a655b29d87136b35ab2689aa121364a173900ab5bd6e8d3d9d'
     this.apiBaseURL = 'https://min-api.cryptocompare.com'
     this.infoBaseURL = 'https://cryptocompare.com'
   }

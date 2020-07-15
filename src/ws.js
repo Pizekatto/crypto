@@ -1,7 +1,10 @@
 export default class WS {
   constructor() {
-    this.url = 'wss://streamer.cryptocompare.com/v2'
-    this.key = 'a6483e3a0a61a95c3954df3d546c8b31ddafdfd6330ea0b43079563a88f1a32a'
+    this.apiBaseURL = 'wss://streamer.cryptocompare.com/v2'
+    this.key = 'bfa3821152c6b9a655b29d87136b35ab2689aa121364a173900ab5bd6e8d3d9d'
+    this.url = this.generateURL(this.apiBaseURL, {
+      'api_key': this.key
+    })
     this.socket = new WebSocket(this.url)
     this.socket.onclose = event => {
       if (event.wasClean) {
@@ -13,11 +16,21 @@ export default class WS {
     }
     this.socket.onopen = () => {
       console.log("Соединение установлено")
-        // console.log("Ready state", this.socket.readyState);
+      console.log("Ready state", this.socket.readyState);
     }
     this.socket.onerror = err => console.log(err.message)
 
-    setTimeout(() => this.socket.close(), 8000)
+    // setTimeout(() => this.socket.close(), 8000)
+  }
+
+  generateURL(base, options) {
+    const url = new URL(base)
+    if (options) {
+      for (let option in options) {
+        url.searchParams.append(option, options[option])
+      }
+    }
+    return url
   }
 
   capitalize(str) {
@@ -37,8 +50,8 @@ export default class WS {
 
   subscribe(subsArr) {
     const subs = this.createSubs(subsArr)
+    console.log("subscribe -> subs", subs)
     this.socket.send(JSON.stringify({
-      api_key: this.key,
       format: "streamer",
       action: "SubAdd",
       subs
@@ -48,7 +61,6 @@ export default class WS {
   unsubscribe(subsArr) {
     const subs = this.createSubs(subsArr)
     this.socket.send(JSON.stringify({
-      api_key: this.key,
       action: "SubRemove",
       subs
     }))

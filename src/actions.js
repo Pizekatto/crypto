@@ -234,8 +234,8 @@ const wsConnect = () => {
     ws.socket.onmessage = event => {
       const data = JSON.parse(event.data)
         // if (data.TYPE != "2") {
-        // console.log(data);
-        // }
+      console.log(data);
+      // }
       if (!isEdited(getState())) {
         dispatch(responseWs(event.data))
       }
@@ -247,7 +247,7 @@ const wsConnect = () => {
         } else {
           resolve(ws.socket.readyState)
         }
-      }, 500)
+      }, 50)
 
     })
   }
