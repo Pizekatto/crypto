@@ -149,7 +149,6 @@ export default class Data {
 
   }
 
-
   cbrf = async() => {
     const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
     const response = await fetch(url, { cache: 'no-store' })

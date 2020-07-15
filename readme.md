@@ -1,15 +1,16 @@
 ## Демо
-[Github Pages](https://pizekatto.github.io/neon/)
+[Github Pages](https://pizekatto.github.io/crypto/)
 ## Запуск
 ```bash
 npm start
 ```
-## Компоненты
-### Sticky Navbar
-Navbar переходит в состояние `Sticky` используя `Intersection Observer`. Логотип меняется на телефонном разрешении через `mediaQueryList`. Секции отслеживаются и подсвечиваются. Переходы по якорям с эффектом `SmoothScroll`.
+## Описание
+Приложение представляет собой портфель криптовалют. Создано на чистом JavaScritpt с применением [Redux](https://github.com/reduxjs/redux) для хранения состояния. Данные по криптовалютам берутся из API [CryptoCompare](https://min-api.cryptocompare.com/), обновляется по WebSocket. Курсы фиатных валют загружаются из сервиса [курсы валют в формате JSON](https://www.cbr-xml-daily.ru/), который формирует JSON из данных Центробанка РФ.
+- состояние приложения при каждом обновлении сохраняется в localStorageы
+- курсы ЦБ кешируются в до следующего обновления со стороны ЦБ
 ### Анимация
 Анимация применяется через `data`-атрибут с нужным классом, срабатывает используя `Intersection Observer`
-### Couner
-Счетчик сделан на асинхронном генераторе
 ### Ресурсы
-Для плавной прокрутки `scrollIntoView()` Использован [SmothScroll polyfill](https://github.com/alicelieutier/smoothScroll)
+- [Redux](https://github.com/reduxjs/redux) - управление состоянием приложения
+- [CryptoCompare.com](https://min-api.cryptocompare.com/) - данные по криптовалютам
+- [SmothScroll polyfill](https://github.com/alicelieutier/smoothScroll) для плавной прокрутки `scrollIntoView()`
