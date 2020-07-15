@@ -134,9 +134,9 @@ export default class Data {
       const oneday = 1000 * 60 * 60 * 24
 
       if (diff < oneday) {
-        const hours = Math.trunc(diff / 1000 / 60 / 60)
-        const minutes = Math.round(diff / 1000 / 60 % 60)
-        console.log("C момента обновления курса ЦБ прошло", `${hours}ч ${minutes}м`)
+        // const hours = Math.trunc(diff / 1000 / 60 / 60)
+        // const minutes = Math.round(diff / 1000 / 60 % 60)
+        // console.log("C момента обновления курса ЦБ прошло", `${hours}ч ${minutes}м`)
         return cache
       }
     }
