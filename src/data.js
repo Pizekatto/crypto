@@ -141,7 +141,7 @@ export default class Data {
       }
     }
 
-    console.log("Загружаем данные ЦБ из API")
+    // console.log("Загружаем данные ЦБ из API")
     const data = await this.cbrf()
     localStorage.setItem('cbrf', JSON.stringify(data))
 
@@ -154,7 +154,6 @@ export default class Data {
     const response = await fetch(url, { cache: 'no-store' })
     const json = await response.json()
     let { Timestamp: timestamp } = json
-    console.log('timestamp: ', timestamp);
     timestamp = Date.parse(timestamp)
     const datetime = new Date(timestamp).toLocaleString()
     const { BYN, EUR, USD, UAH } = json.Valute

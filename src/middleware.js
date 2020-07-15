@@ -1,4 +1,4 @@
-import { REWRITE_TABLE, SORTING, ADD_TOTAL } from './types'
+import { REWRITE_TABLE, ADD_TOTAL } from './types'
 
 export const storage = store => next => action => {
   if (action.type === REWRITE_TABLE) {
@@ -47,7 +47,7 @@ export const sorting = store => next => action => {
   return next(action)
 }
 
-export const value = store => next => action => {
+export const value = () => next => action => {
   if (action.type === REWRITE_TABLE) {
     action.payload = action.payload.map(elem => {
       elem.value = +(elem.amount * elem.price).toFixed(3)

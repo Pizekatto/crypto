@@ -16,7 +16,7 @@ export default class WS {
     }
     this.socket.onopen = () => {
       console.log("Соединение установлено")
-      console.log("Ready state", this.socket.readyState);
+        // console.log("Ready state", this.socket.readyState);
     }
     this.socket.onerror = err => console.log(err.message)
 
@@ -50,7 +50,6 @@ export default class WS {
 
   subscribe(subsArr) {
     const subs = this.createSubs(subsArr)
-    console.log("subscribe -> subs", subs)
     this.socket.send(JSON.stringify({
       format: "streamer",
       action: "SubAdd",

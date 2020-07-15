@@ -6,49 +6,17 @@ const dataInstance = new Data()
 
 import {
   ADD_ROW,
-  ADD_TOTAL,
   ADD_COINS_DATA,
   ADD_ALL_EXCHANGES,
   REWRITE_TABLE,
   ADD_CBRF_CURRENCIES,
-  DELETE_ROW,
-  APPLY_ROW,
-  DECLINE_ROW,
-  CHANGE_COIN,
-  CHANGE_EXCHANGE,
-  CHANGE_AMOUNT,
   CHANGE_SECOND_CURRENCY,
-  REQUEST_COINS_LIST,
-  RESPONSE_COINS_LIST,
-  REQUEST_EXCHANGES,
-  RESPONSE_EXCHANGES,
-  WS_UNSUBSCRIBE,
   SORTING
 } from './types'
 
 
-const changeCoin = (coin, id) => ({ type: CHANGE_COIN, coin, id })
-const changeExchange = (exchange, id) => ({ type: CHANGE_EXCHANGE, exchange, id })
-const changeAmount = (amount, id) => ({ type: CHANGE_AMOUNT, amount, id })
 const changeSecondCurrency = payload => ({ type: CHANGE_SECOND_CURRENCY, payload })
 const sort = payload => ({ type: SORTING, payload })
-
-const requestCoinsList = () => {
-  return { type: REQUEST_COINS_LIST }
-}
-const responseCoinsList = (status, response) => {
-  return { type: RESPONSE_COINS_LIST, status, response }
-}
-const requestExchanges = () => {
-  return { type: REQUEST_EXCHANGES }
-}
-const responseExchanges = (status, response) => {
-  return { type: RESPONSE_EXCHANGES, status, response }
-}
-const wsUnsubscribe = (exchange, from, to) => {
-  return { type: WS_UNSUBSCRIBE, exchange, from, to }
-}
-
 const addRow = payload => ({ type: ADD_ROW, payload })
 const addCoinsData = payload => ({ type: ADD_COINS_DATA, payload })
 const addAllExchanges = payload => ({ type: ADD_ALL_EXCHANGES, payload })
@@ -63,11 +31,6 @@ const isEdited = (state) => {
 
 const isMatch = (obj1, obj2) => {
   return obj1.coin === obj2.coin && obj1.exchange === obj2.exchange
-}
-
-const isMatchRows = (state, data) => {
-  const matchRow = state.table.rows.find(row => isMatch(row, data) && row.id !== data.id)
-  return matchRow
 }
 
 const getRowById = (state, id) => {
@@ -232,9 +195,9 @@ const wsSubscribe = (subsArr) => () => {
 const wsConnect = () => {
   return (dispatch, getState) => {
     ws.socket.onmessage = event => {
-      const data = JSON.parse(event.data)
-        // if (data.TYPE != "2") {
-      console.log(data);
+      // const data = JSON.parse(event.data)
+      // if (data.TYPE != "2") {
+      // console.log(data);
       // }
       if (!isEdited(getState())) {
         dispatch(responseWs(event.data))
@@ -278,8 +241,6 @@ const convertCurrency = (price, secondCurrency, cbrf) => {
       return price * usd.value / byn.value
   }
 }
-
-const addTotal = total => ({ type: ADD_TOTAL, total })
 
 const completeRow = (data) => {
   return (dispatch, getState) => {

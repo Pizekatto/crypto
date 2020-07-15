@@ -8,6 +8,7 @@
       size: auto 500px
   &-container
     position: relative
+    overflow: hidden
     padding: 0 0 2.5rem 0
     text-align: center
     background-color: transparent
@@ -15,25 +16,21 @@
       padding: 2.5rem 0
       border-radius: 1rem
       background:
-        image: url('../assets/images/icons/btc-gray.svg')
-        size: 200px
-        repeat: no-repeat
-        position: 105% 125%
         color: #fff
       box-shadow: 0 6px 20px rgba(43, 60, 93, 0.1)
-    // &::before
-    //   --size: 10%
-    //   content: ''
-    //   position: absolute
-    //   width: var(--size)
-    //   height: var(--size)
-    //   top: 10%
-    //   right: 10%
-    //   background:
-    //     image: url('../assets/images/icons/btc.svg')
-    //     size: 100%
-    //     repeat: no-repeat
-    //     position: center
+      &::after
+        --size: 200px
+        content: ''
+        position: absolute
+        width: var(--size)
+        height: var(--size)
+        bottom: -50px
+        right: -50px
+        background:
+          image: url('../assets/images/icons/btc-gray.svg')
+          size: 100%
+          repeat: no-repeat
+          position: center
   &-body
     display: grid
     grid-gap: 1rem
@@ -49,7 +46,6 @@
     display: grid
     place-items: stretch
     border-bottom: 1px solid #ebebf6
-    // background-color: #fff
     @include media-breakpoint-up(md)
       place-items: center
     &:hover, &.edited
