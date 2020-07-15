@@ -1,0 +1,50 @@
+.icon
+  padding: .5rem
+  line-height: .75rem
+  border-radius: 50%
+  .edited &
+    border-radius: 50%
+    padding: .75rem
+    @include media-breakpoint-up(md)
+      padding: .5rem
+  @include media-breakpoint-up(md)
+    padding: .5rem
+  &:hover
+    cursor: pointer
+  &::before
+    --size: .75rem
+    .edited &
+      --size: 1rem
+      @include media-breakpoint-up(md)
+        --size: .75rem
+    display: inline-block
+    width: var(--size)
+    height: var(--size)
+    content: ''
+    background:
+      size: 100%
+      repeat: no-repeat
+  &-edit
+    &::before
+      background:
+        image: url(../assets/images/icons/pen-solid.svg)
+  &-delete
+    &::before
+      background:
+        image: url(../assets/images/icons/trash-solid.svg)
+  &-ok
+    &::before
+      background:
+        image: url(../assets/images/icons/check-solid.svg)
+  &-cancel
+    &::before
+      background:
+        image: url(../assets/images/icons/close.svg)
+.success
+  background-color: rgba(43, 217, 0, 0.4)
+  &:hover
+    background-color: rgba(43, 217, 0, 1)
+.cancel
+  background-color: rgba(213, 0, 0, 0.4)
+  &:hover
+    background-color: rgba(213, 0, 0, 1)

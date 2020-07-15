@@ -1,0 +1,15 @@
+{
+  "rows": [
+    { "coin": "BTC", "exchange": "Coinbase", "amount": 0.9873 },
+    { "coin": "ETH", "exchange": "Bitfinex", "amount": 184 },
+    { "coin": "XRP", "exchange": "Coinbase", "amount": 1367 }
+  ],
+  "exchanges": ["coinbase", "bitfinex", "binance", "bittrex", "exmo", "kraken", "kucoin", "okex", "poloniex"],
+  "ui": {
+    "secondcurrency": "rub",
+    "sorting": {
+      "type": null,
+      "reverse": false
+    }
+  }
+}

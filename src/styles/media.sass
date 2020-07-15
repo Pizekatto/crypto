@@ -1,0 +1,54 @@
+
+	// Mobile first
+
+// Для XS (portrait phones, less than 576px)
+// нет медиа-запроса, так как он умолчанию в Bootstrap
+
+// SM (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+// MD (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+// LG (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+// XL (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+@include media-breakpoint-up(sm)
+@include media-breakpoint-up(md)
+@include media-breakpoint-up(lg)
+@include media-breakpoint-up(xl)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// Desctop first
+
+// XS (portrait phones, less than 576px)
+@media (max-width: 575px) { ... }
+// SM (landscape phones, less than 768px)
+@media (max-width: 767px) { ... }
+// MD (tablets, less than 992px)
+@media (max-width: 991px) { ... }
+// LG (desktops, less than 1200px)
+@media (max-width: 1199px) { ... }
+// XL (large desktops)
+// нет медиазапроса, так как очень большая точка останова не имеет верхней границы ширины
+
+@include media-breakpoint-down(xs) { ... }
+@include media-breakpoint-down(sm) { ... }
+@include media-breakpoint-down(md) { ... }
+@include media-breakpoint-down(lg) { ... }

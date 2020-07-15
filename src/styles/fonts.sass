@@ -1,0 +1,26 @@
+
+// 100 Extra Light or Ultra Light
+// 200 Light or Thin; 300 Book or Demi
+// 400 Regular or Normal
+// 500 Medium
+// 600 Semibold or Demibold
+// 700 Bold
+// 800 Black or Extra Bold or Heavy
+// 900 Extra Black or Fat or Ultra Black
+
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+  @font-face
+    font-family: $f-name
+    font-style: $f-style
+    font-weight: $f-weight
+    src: url($f-url) format('woff2')
+    font-display: swap
+
+@include font('Roboto', normal, 400, '../assets/fonts/roboto-v20-latin_cyrillic-regular.woff2')
+@include font('Roboto', normal, 700, '../assets/fonts/roboto-v20-latin_cyrillic-700.woff2')
+
+@include font('Source Sans Pro', normal, 300, '../assets/fonts/source-sans-pro-v13-latin_cyrillic-300.woff2')
+@include font('Source Sans Pro', normal, 400, '../assets/fonts/source-sans-pro-v13-latin_cyrillic-regular.woff2')
+@include font('Source Sans Pro', normal, 600, '../assets/fonts/source-sans-pro-v13-latin_cyrillic-600.woff2')
+@include font('Source Sans Pro', normal, 700, '../assets/fonts/source-sans-pro-v13-latin_cyrillic-700.woff2')
+@include font('Source Sans Pro', normal, 900, '../assets/fonts/source-sans-pro-v13-latin_cyrillic-900.woff2')

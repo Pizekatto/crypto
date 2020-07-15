@@ -1,0 +1,76 @@
+nav
+  position: fixed
+  z-index: 5
+  width: 100%
+  background-color: #fff
+  border-bottom: 1px solid #dfe5eb
+.logo
+  font: 700 1.25rem "Source Sans Pro", sans-serif
+  span
+    color: #540cfa
+.navbar
+  height: 60px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  &-menu
+    width: 352px
+    display: flex
+    justify-content: space-between
+    a
+      font-size: calc(.75rem + 0.7vw)
+      color: #77758a
+      @include media-breakpoint-up(sm)
+        font-size: inherit
+      &:hover
+        color: #540cfa
+      // &:not(:last-child)
+      //   margin-right: 1rem
+  &-btn
+  &-logo
+    margin-right: .5rem
+.start
+  --size: 320px
+  @include media-breakpoint-up(lg)
+    --size: 450px
+  position: relative
+  padding: 8rem 0 0
+  overflow: hidden
+  &::before, &::after
+    content: ''
+    position: absolute
+    width: var(--size)
+    height: var(--size)
+    transition: $transition-base
+    border-radius: 70px
+  &::before
+    z-index: -2
+    background-image: linear-gradient(to right bottom, #9C09DB, #1C0FD7)
+    top: -130px
+    right: -180px
+    transform: rotate(-35deg)
+  &::after
+    z-index: -1
+    background-image: linear-gradient(to right bottom, #F2C314, #FC3832)
+    top: -160px
+    right: -120px
+    transform: rotate(-15deg)
+  &-title
+  &-icon
+    width: 4rem
+    height: 4rem
+    background:
+      image: url(../assets/images/icons/btc.svg)
+      repeat: no-repeat
+      size: 100%
+  &-heading
+    font: 900 2rem "Source Sans Pro", sans-serif
+    max-width: 650px
+    margin: 1.75rem 0
+    @include media-breakpoint-up(md)
+      font: 900 2.625rem "Source Sans Pro", sans-serif
+    span
+      color: #540cfa
+  &-description
+    font: 300 1.25rem/2.125rem "Source Sans Pro", sans-serif
+    max-width: 560px

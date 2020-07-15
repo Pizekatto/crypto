@@ -1,0 +1,29 @@
+.btn
+  text-align: center
+  padding: 6px 1rem
+  font-weight: 600
+  border: 2px solid currentColor
+  border-radius: 4px
+  transition: all 0.1s ease-in
+  &-outline
+    color: #540cfa
+    &:hover
+      color: #540cfa
+      border-color: #ba9dff
+  &-fill
+    color: #fff
+    background-color: #540cfa
+    box-shadow: 0 2px 4px rgba(60, 9, 179, 0.3)
+    border-color: #540cfa
+    &:hover
+      color: #fff
+      background-color: #773efb
+      border-color: #773efb
+  &-text
+    font-size: 1.25rem
+    line-height: 1.5
+    vertical-align: middle
+    @include media-breakpoint-up(md)
+      font-size: 1rem
+
+
