@@ -20,7 +20,7 @@ export default class WS {
     }
     this.socket.onerror = err => console.log(err.message)
 
-    // setTimeout(() => this.socket.close(), 8000)
+    setTimeout(() => this.socket.close(), 8000)
   }
 
   generateURL(base, options) {
